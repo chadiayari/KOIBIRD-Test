@@ -1,0 +1,208 @@
+$mainColor: #E0FF04;
+
+// Responsive
+
+//Extra Large Screen - 1171 to 1920 screen size
+@mixin xlg-screen {
+  @media only screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+//Large Screen - 993 to 1170 screen size
+@mixin lg-screen {
+  @media only screen and (max-width: 1170px) {
+    @content;
+  }
+}
+
+//Medium Screen - 768 to 992 screen size
+@mixin md-screen {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+//Medium Screen - 575 to 767 screen size
+@mixin sm-screen {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+//Medium Screen - below 575 screen size
+@mixin xs-screen {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+
+section.new-in {
+  padding-top: 2.5rem;
+
+  .new-in-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .new-in-line {
+      flex: 5;
+      height: .18rem;
+      background-color: $mainColor;
+    }
+
+    .new-in-title {
+      max-width: 7.6vw;
+      flex: 2;
+
+      h4 {
+        color: black;
+        font-weight: 400;
+        letter-spacing: .15rem;
+      }
+    }
+  }
+}
+
+section.new-in-slider {
+  width: 85%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  padding: 3rem 0;
+
+  button.slider-btns {
+    position: absolute;
+    top: 25%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include md-screen {
+      display: none;
+    }
+
+    span.slider-btn-icon {
+      font-size: 5rem;
+      color: $mainColor;
+      font-weight: 400;
+    }
+  }
+
+  .next-btn {
+    right: -0.5rem;
+  }
+
+  .prev-btn {
+    left: -0.5rem;
+  }
+
+  .slider-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include md-screen {
+      flex-direction: column;
+    }
+
+    article.slider-product {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include md-screen {
+        padding: 1.25rem 0;
+      }
+
+
+
+      img.product-image {
+        max-height: 48.7vh;
+        object-fit: cover;
+        object-position: top;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        @include xlg-screen {
+          max-height: 38.9vh;
+        }
+
+        @include lg-screen {
+          max-height: 25.5vh;
+        }
+
+        @include md-screen {
+          max-height: 48.7vh;
+        }
+        &:hover{
+          transform: scale(1.1);
+        }
+      }
+
+      
+
+      .product-like {
+        width: 1vw;
+        height: auto;
+        display: inline;
+        position: relative;
+        left: 6.25rem;
+        object-fit: cover;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h5 {
+          font-weight: 400;
+          line-height: 1.25rem;
+          letter-spacing: .06rem;
+        }
+
+        h5.product-title {
+          color: black;
+        }
+
+        h5.product-brand {
+          color: #999999;
+        }
+
+        button.product-shopnow-btn {
+          border: none;
+          background-color: transparent;
+          display: block;
+          margin: .4rem 0;
+          border-bottom: .125rem solid $mainColor;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.3);
+          }
+
+          h4.shopnow-btn-title {
+            color: black;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}

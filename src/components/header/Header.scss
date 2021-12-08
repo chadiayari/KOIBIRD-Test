@@ -1,0 +1,355 @@
+// Responsive
+
+//Extra Large Screen - 1171 to 1920 screen size
+@mixin xlg-screen {
+  @media only screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+//Large Screen - 993 to 1170 screen size
+@mixin lg-screen {
+  @media only screen and (max-width: 1170px) {
+    @content;
+  }
+}
+
+//Medium Screen - 768 to 992 screen size
+@mixin md-screen {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+//Medium Screen - 575 to 767 screen size
+@mixin sm-screen {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+//Medium Screen - below 575 screen size
+@mixin xs-screen {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+
+#container {
+  top: 0;
+  z-index: 99;
+  background-color: white;
+
+  #header {
+    width: 100%;
+    height: 9.7vh;
+    margin: .6rem auto 1.25rem auto;
+    padding: 1.25rem 0 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      @include lg-screen {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .header-searchbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 3;
+
+        @include lg-screen {
+          width: 100%;
+          margin-top: 1.25rem;
+        }
+
+        #header-form {
+          width: 40%;
+          display: flex;
+          align-items: center;
+          border-bottom: .06rem solid #999999;
+
+          .header-search-icon {
+            cursor: pointer;
+          }
+
+          #search-input {
+            border: none;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .mainLogo {
+        flex: 6;
+        max-height: 5.8vh;
+
+        @include lg-screen {
+          padding: 1.25rem 0 0 0;
+        }
+
+        .logoImage {
+          width: 100%;
+          max-width: 34.7vw;
+          transition: height 0.4s;
+          cursor: pointer;
+
+          @include lg-screen {
+            max-width: 20.8vw
+          }
+
+          @include xs-screen {
+            max-width: 13.8vw;
+          }
+        }
+
+        .logoImage.fixed {
+          display: none;
+        }
+      }
+
+      .header-accounts {
+        width: 80%;
+        flex: 3;
+        display: flex;
+        align-items: center;
+
+        @include lg-screen {
+          display: none;
+        }
+
+        .register-account {
+          align-items: center;
+          margin-right: .9rem;
+
+          span {
+            font-size: .7rem;
+            cursor: pointer;
+          }
+        }
+
+        .headerIcons {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          margin: .93rem;
+        }
+      }
+    }
+  }
+
+  #header-navbar {
+    background-color: white;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    @include md-screen {
+      padding: .9rem 0;
+    }
+
+    .navbar-fixed-wrapper {
+      width: 100%;
+      margin: 0 auto;
+      z-index: 99;
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        position: relative;
+        text-decoration: none;
+        font-size: .9rem;
+        transition: all 0.1s ease-in-out;
+        margin: 0 4%;
+        width: fit-content;
+        height: 3vh;
+        border-bottom: .1rem solid  white;
+  
+        @include xlg-screen {
+          font-size: 0.9rem;
+        }
+
+        @include lg-screen {
+          font-size: 0.8rem;
+        }
+  
+        @include md-screen {
+          font-size: 0.6rem;
+        }
+  
+        @include sm-screen {
+          font-size: 0.45rem;
+        }
+  
+        @include xs-screen {
+          font-size: 0.3rem;
+        }
+  
+        &:hover {
+          border-bottom: 0.2rem solid #E0FF04;
+        }
+      }
+
+      .dropdown-content {
+        display: none;
+        background-color: white;
+        z-index: 1;
+        padding: 1rem;
+
+        @include lg-screen {
+          padding: .5rem;
+        }
+  
+        @include md-screen {
+          padding: .4rem;
+        }
+  
+        @include sm-screen {
+          padding: .2rem;
+        }
+  
+        @include xs-screen {
+          padding: .1rem;
+        }
+
+        a {
+          padding: .7rem 1rem;
+          display: block;
+          text-align: left;
+        }
+      }
+          
+      .openNav {
+        position: absolute;
+        justify-content: center;
+        left: 0%;
+        min-width: 30vw;
+
+        @include lg-screen {
+          max-height: 70vh;
+        }
+  
+        @include md-screen {
+          max-height: 60vh;
+        }
+  
+        @include sm-screen {
+          min-height: 60vh;
+        }
+  
+        @include xs-screen {
+          min-height: 60vh;
+        }
+
+      }
+
+      .second {
+        position: relative;
+        &:hover{
+
+          .openNav {
+            display: flex;
+          }
+        }
+      }
+      
+      .dropdownRow {
+        display: flex;
+        flex-wrap: wrap;
+
+        .dropdownRow1 {
+          display: flex;
+          width: 15vw;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          height: 58vh;
+        
+        }
+        .dropdownRow2 {
+          width: 15vw;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          height: 60vh;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      max-width: 13.8vw;
+      max-height: 4.4vh;
+      display: none;
+      margin: .6rem auto;
+
+      @include sm-screen {
+        max-width: 7vw;
+      }
+    }
+  }
+
+  #header-navbar.fixed {
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    background-color: white;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .navbar-submenu {
+    background-color: white;
+    position: absolute;
+    top: 12rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: none;
+    padding: 1rem 2rem;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      li {
+        font-weight: 400;
+        font-size: 1rem;
+        padding: .6rem 0;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,256 @@
+$mainColor: #E0FF04;
+
+//Extra Large Screen - 1171 to 1920 screen size
+@mixin xlg-screen {
+  @media only screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+//Large Screen - 993 to 1170 screen size
+@mixin lg-screen {
+  @media only screen and (max-width: 1170px) {
+    @content;
+  }
+}
+
+//Medium Screen - 768 to 992 screen size
+@mixin md-screen {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+//Medium Screen - 575 to 767 screen size
+@mixin sm-screen {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+//Medium Screen - below 575 screen size
+@mixin xs-screen {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+
+.footer {
+  width: 100vw;
+  height: 100%;
+  max-height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.9rem 0;
+  background-color: $mainColor;
+
+  @include md-screen {
+    flex-direction: column;
+    max-height: 36vh;
+  }
+
+  .footer-leftside {
+    flex: 8;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 6rem;
+
+    @include md-screen {
+      margin-left: 0;
+      align-items: center;
+    }
+
+    @include sm-screen {
+      margin-left: 0;
+      align-items: center;
+    }
+
+    @include xs-screen {
+      margin-left: 0;
+      align-items: center;
+    }
+
+    .footer-logo {
+      margin-bottom: 1.8rem;
+
+      @include md-screen {
+        margin: 0 auto;
+        margin-bottom: .6rem;
+      }
+
+      .footer-logo-svg {
+        cursor: pointer;
+      }
+    }
+
+    .footerLinks {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 55%;
+
+      @include lg-screen {
+        width: 70%;
+      }
+
+      @include md-screen {
+        margin-bottom: 1.8rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include xs-screen {
+        align-items: center;
+        justify-content: center;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: .9rem;
+        transition: all 0.1s ease-in-out;
+
+        @include sm-screen {
+          font-size: .8rem;
+          padding: .7rem;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .footerRightSide {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 3.7rem;
+
+    @include md-screen {
+      align-items: center;
+    }
+
+    @include md-screen {
+      margin-right: 0;
+    }
+
+    h5 {
+      color: black;
+      font-weight: 400;
+      letter-spacing: .06rem;
+    }
+
+    .footerForm {
+      width: 100%;
+      margin-top: .4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .form-input {
+        width: 100%;
+        max-width: 27.7vw;
+        display: block;
+        border: none;
+        padding: .3rem;
+        background-color: white;
+        margin-bottom: .4rem;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+
+      .gdpr {
+        margin-top: 1%;
+
+        .gdprContent {
+          display: block;
+          position: relative;
+          padding-left: .9rem;
+          cursor: pointer;
+          font-size: .5rem;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          letter-spacing: 0.07em;
+
+          input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+          }
+        }
+
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 1.2vh;
+          width: .6vw;
+          background-color: white;
+        }
+
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
+        .gdprContent input:checked~.checkmark {
+          background-color: white;
+        }
+
+        .gdprContent input:checked~.checkmark:after {
+          display: block;
+        }
+
+        .gdprContent .checkmark:after {
+          left: .18rem;
+          top: 0rem;
+          width: .13vw;
+          height: .6vh;
+          border: solid black;
+          border-width: 0 .125rem .125rem 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+
+      .ant-form-item-explain-error {
+        font-size: .7rem !important;
+      }
+
+      button.product-shopnow-btn {
+        border: none;
+        background-color: transparent;
+        display: block;
+        margin: .7rem 0;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        @include md-screen {
+          margin: .9rem auto;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        h4.shopnow-btn-title {
+          color: black;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

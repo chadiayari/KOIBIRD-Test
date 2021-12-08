@@ -1,0 +1,127 @@
+//Extra Large Screen - 1171 to 1920 screen size
+@mixin xlg-screen {
+  @media only screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+//Large Screen - 993 to 1170 screen size
+@mixin lg-screen {
+  @media only screen and (max-width: 1170px) {
+    @content;
+  }
+}
+
+//Medium Screen - 768 to 992 screen size
+@mixin md-screen {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+//Medium Screen - 575 to 767 screen size
+@mixin sm-screen {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+//Medium Screen - below 575 screen size
+@mixin xs-screen {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+
+
+main {
+  width: 100%;
+  padding-bottom: 2.5rem;
+  position: relative;
+
+  .main-img img {
+
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .brand-logo-container {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    
+    @include lg-screen {
+      right: 0%;
+    }
+    
+    @include xs-screen {
+      left: 40%;
+      top: 20%;
+    }
+
+    .brand-logo {
+      transform: scale(.8);
+
+      @include lg-screen {
+        transform: scale(.5);
+      }
+
+      @include md-screen {
+        transform: scale(.5);
+      }
+
+      @include xs-screen {
+        transform: scale(.5);
+      }
+    }
+
+    span {
+      color: white;
+      font-size: .8rem;
+    }
+
+    div {
+      position: absolute;
+      right: 10%;
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-left: .4rem;
+        transform: scale(.7);
+        cursor: pointer;
+      }
+
+      @include lg-screen {
+        transform: scale(.9);
+        right: 20%;
+      }
+
+      @include md-screen {
+        transform: scale(.8);
+        right: 20%;
+      }
+
+      @include xs-screen {
+        transform: scale(.5);
+      }
+    }
+  }
+
+  .main-title {
+    background-color: #E0FF04;
+    padding: 1.25rem 0;
+
+    h4 {
+      color: black;
+      font-weight: 700;
+      letter-spacing: 0.15rem;
+
+      @include xs-screen {
+        transform: scale(.8);
+      }
+    }
+  }
+}
